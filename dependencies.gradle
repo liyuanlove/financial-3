@@ -14,6 +14,7 @@ ext {
             ],
             test   : [
                     "org.springframework.boot:spring-boot-starter-test:${versions.springBootVersion}"
+                    ,"com.h2database:h2:1.4.195"
             ]
     ]
 }
