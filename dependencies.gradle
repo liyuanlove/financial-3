@@ -6,11 +6,18 @@ ext {
             common : [
                     "org.springframework.boot:spring-boot-starter-web:${versions.springBootVersion}",
                     "org.springframework.boot:spring-boot-starter-data-jpa:${versions.springBootVersion}",
-                    "org.apache.commons:commons-lang3:3.5"
-                    , "com.h2database:h2:1.4.195"
+                    "org.apache.commons:commons-lang3:3.5",
+                    "com.h2database:h2:1.4.195"
             ],
             mysql  : [
                     "mysql:mysql-connector-java:5.1.29"
+            ],
+            jsonrpc:[
+                    "com.imooc.jsonrpc4j:jsonrpc4j:1.5.3"
+            ],
+            hazelcast:[
+                    'com.hazelcast:hazelcast:3.8.6',
+                    'com.hazelcast:hazelcast-spring:3.8.6',
             ],
             test   : [
                     "org.springframework.boot:spring-boot-starter-test:${versions.springBootVersion}"

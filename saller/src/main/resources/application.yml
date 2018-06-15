@@ -1,0 +1,12 @@
+server:
+  context-path: /seller
+  port: 8082
+
+logging:
+  level:
+    com.googlecode.jsonrpc4j: debug
+
+rpc:
+  client:
+    url: http://localhost:8081/manager
+    basePackage: com.imooc.api

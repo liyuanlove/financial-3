@@ -1,5 +1,6 @@
 package com.imooc.swagger;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 /**
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Component;
  * Created by songyouyu on 2018/6/14
  */
 @Component
+@ConfigurationProperties(prefix = "swagger")
 public class SwaggerInfo {
 
     private String groupName ="controller";

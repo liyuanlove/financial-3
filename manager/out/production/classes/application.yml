@@ -4,10 +4,13 @@ spring:
     time-zone: GMT+8
   datasource:
     url: jdbc:mysql://localhost:3306/manager?user=root&password=&useUnicode=true&characterEncoding=utf-8&useSSL=true
-#    url: jdbc:h2:mem:manager;DB_CLOSE_ON_EXIT=FALSE
   jpa:
     show-sql: true
 
 server:
   context-path: /manager
   port: 8081
+
+swagger:
+  groupName: manager
+  basePackage: com.imooc.manager.controller

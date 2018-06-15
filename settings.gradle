@@ -1,7 +1,5 @@
 rootProject.name = 'financial'
 include 'util'
-rootProject.name = 'financial'
-rootProject.name = 'financial'
 include 'api'
 include 'entity'
 include 'manager'

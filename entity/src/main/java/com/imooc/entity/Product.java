@@ -1,5 +1,7 @@
 package com.imooc.entity;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
@@ -19,6 +21,7 @@ public class Product implements Serializable {
     /**
      * @see com.imooc.entity.enums.ProductStatus
      */
+    @ApiModelProperty(value = "状态",dataType = "com.imooc.entity.enums.ProductStatus")
     private String status ;
     //起投金额
     private BigDecimal thresholdAmount ;
