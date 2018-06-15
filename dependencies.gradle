@@ -23,6 +23,9 @@ ext {
                     "org.springframework.boot:spring-boot-starter-test:${versions.springBootVersion}"
                     ,"com.h2database:h2:1.4.195"
             ],
+            activemq:[
+                    "org.springframework.boot:spring-boot-starter-activemq:${versions.springBootVersion}",
+            ],
             swagger: [
                     "io.springfox:springfox-swagger2:2.7.0",
                     "io.springfox:springfox-swagger-ui:2.7.0"

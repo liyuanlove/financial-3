@@ -14,6 +14,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 //@Import(SwaggerConfiguration.class)
 //第二种方式(定义注解)
 //@EnableMySwagger
+//第三种方式：不用用注解，通过在swagger模块中配置spring.factories文件
 public class ManagerApp {
 
     public static void main(String[] args) {

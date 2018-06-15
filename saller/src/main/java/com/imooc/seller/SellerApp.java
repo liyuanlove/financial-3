@@ -2,6 +2,7 @@ package com.imooc.seller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
@@ -10,6 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.imooc.api", "com.imooc.seller"})
+@EnableCaching //开启缓存功能
 public class SellerApp {
 
     public static void main(String[] args) {
