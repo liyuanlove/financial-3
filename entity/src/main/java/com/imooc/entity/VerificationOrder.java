@@ -5,16 +5,15 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 /**
  * 订单
- * Created by songyouyu on 2018/6/13
+ * Created by songyouyu on 2018/6/17
  */
-@Entity(name = "order_t")
-public class Order {
+@Entity
+public class VerificationOrder {
 
     @Id
     private String orderId;
@@ -35,18 +34,9 @@ public class Order {
 
     private String outerOrderId;
 
-    /**
-     * @see com.imooc.entity.enums.OrderStatus
-     */
-    private String orderStatus;
-
-    private String memo;
 
     @JsonFormat(pattern = "YYYY-MM-DD HH:mm:ss")
     private Date createAt;
-
-    @JsonFormat(pattern = "YYYY-MM-DD HH:mm:ss")
-    private Date updateAt;
 
     @Override
     public String toString() {
@@ -109,21 +99,6 @@ public class Order {
         this.outerOrderId = outerOrderId;
     }
 
-    public String getOrderStatus() {
-        return orderStatus;
-    }
-
-    public void setOrderStatus(String orderStatus) {
-        this.orderStatus = orderStatus;
-    }
-
-    public String getMemo() {
-        return memo;
-    }
-
-    public void setMemo(String memo) {
-        this.memo = memo;
-    }
 
     public Date getCreateAt() {
         return createAt;
@@ -132,13 +107,4 @@ public class Order {
     public void setCreateAt(Date createAt) {
         this.createAt = createAt;
     }
-
-    public Date getUpdateAt() {
-        return updateAt;
-    }
-
-    public void setUpdateAt(Date updateAt) {
-        this.updateAt = updateAt;
-    }
-
 }

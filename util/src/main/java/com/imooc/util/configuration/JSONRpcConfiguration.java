@@ -19,7 +19,7 @@ import java.net.URL;
 @Configuration
 public class JSONRpcConfiguration {
 
-    private static Logger log = LoggerFactory.getLogger(JSONRpcConfiguration.class);
+    private static Logger Log = LoggerFactory.getLogger(JSONRpcConfiguration.class);
 
     @Bean
     public AutoJsonRpcServiceImplExporter autoJsonRpcServiceImplExporter() {
@@ -35,7 +35,7 @@ public class JSONRpcConfiguration {
         try {
             creator.setBaseUrl(new URL(url));
         } catch (MalformedURLException e) {
-            log.error("创建rpc地址服务错误", e);
+            Log.error("创建rpc地址服务错误", e);
         }
         creator.setScanPackage(basePackage);
         return creator;

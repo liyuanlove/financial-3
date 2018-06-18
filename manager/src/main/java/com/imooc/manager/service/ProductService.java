@@ -26,7 +26,7 @@ import java.util.List;
 @Service
 public class ProductService {
 
-    private Logger log = LoggerFactory.getLogger(ProductService.class);
+    private Logger Log = LoggerFactory.getLogger(ProductService.class);
 
     @Autowired
     private ProductRepository productRepository;
@@ -38,7 +38,7 @@ public class ProductService {
      */
     public Product addProduct(Product product) {
 
-        log.debug("创建产品，参数:{}", product);
+        Log.debug("创建产品，参数:{}", product);
 
         // 进行数据校检
         checkProduct(product);
@@ -46,7 +46,7 @@ public class ProductService {
         setDefault(product);
 
         Product result = productRepository.save(product);
-        log.debug("创建产品, 结果:{}", result);
+        Log.debug("创建产品, 结果:{}", result);
         return result;
     }
 
@@ -101,11 +101,11 @@ public class ProductService {
             throw new RuntimeException("产品编号不能为空");
         }
 
-        log.debug("查询单个产品, id : {}", id);
+        Log.debug("查询单个产品, id : {}", id);
 
         Product product = productRepository.findOne(id);
 
-        log.debug("查询单个产品, 结果 : {}", product);
+        Log.debug("查询单个产品, 结果 : {}", product);
         return product;
     }
 
@@ -123,7 +123,7 @@ public class ProductService {
                                            BigDecimal maxRewardRate,
                                            List<String> statusList,
                                            Pageable pageable) {
-        log.debug("查询产品, idList : {}, minRewardRate : {}, maxRewardRate : {}, statusList : {}, pageable : {}",
+        Log.debug("查询产品, idList : {}, minRewardRate : {}, maxRewardRate : {}, statusList : {}, pageable : {}",
                 idList, minRewardRate, maxRewardRate, statusList, pageable);
         Specification<Product> specification = new Specification<Product>() {
             @Override
@@ -151,7 +151,7 @@ public class ProductService {
         };
         Page<Product> page = productRepository.findAll(specification, pageable);
 
-        log.debug("查询产品, 结果 : {}", page);
+        Log.debug("查询产品, 结果 : {}", page);
         return page;
     }
 }

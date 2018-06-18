@@ -13,7 +13,7 @@ import java.text.DateFormat;
  */
 public class JsonUtil {
 
-    private static final Logger LOG = LoggerFactory.getLogger(JsonUtil.class);
+    private static final Logger Log = LoggerFactory.getLogger(JsonUtil.class);
     private final static ObjectMapper mapper = new ObjectMapper();
 
     static {
@@ -37,7 +37,7 @@ public class JsonUtil {
         try {
             return mapper.writeValueAsString(obj);
         } catch (IOException e) {
-            LOG.error("to json exception.", e);
+            Log.error("to json exception.", e);
             throw new JSONException("把对象转换为JSON时出错了", e);
         }
     }

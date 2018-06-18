@@ -23,7 +23,7 @@ out/
 *.iws
 
 # temp file
-*.log
+*.Log
 *.cache
 *.diff
 *.patch

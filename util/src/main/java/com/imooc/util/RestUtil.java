@@ -14,7 +14,7 @@ import java.util.Map;
 
 public class RestUtil {
 
-    static Logger log = LoggerFactory.getLogger(RestUtil.class);
+    static Logger Log = LoggerFactory.getLogger(RestUtil.class);
 
     /**
      * 发送post 请求
@@ -29,7 +29,7 @@ public class RestUtil {
     public static <T> T postJSON(RestTemplate restTemplate, String url, Object param, Class<T> responseType) {
         HttpEntity<String> formEntity = makePostJSONEntiry(param);
         T result = restTemplate.postForObject(url, formEntity, responseType);
-        log.info("rest-post-json 响应信息:{}", JsonUtil.toJson(result));
+        Log.info("rest-post-json 响应信息:{}", JsonUtil.toJson(result));
         return result;
     }
 
@@ -45,7 +45,7 @@ public class RestUtil {
         headers.add("Accept", MediaType.APPLICATION_JSON_VALUE);
         HttpEntity<String> formEntity = new HttpEntity<String>(
                 JsonUtil.toJson(param), headers);
-        log.info("rest-post-json-请求参数:{}", formEntity.toString());
+        Log.info("rest-post-json-请求参数:{}", formEntity.toString());
         return formEntity;
     }
 
@@ -56,7 +56,7 @@ public class RestUtil {
         headers.add("Accept", MediaType.APPLICATION_JSON_VALUE);
         HttpEntity<String> formEntity = new HttpEntity<String>(
                 makeGetParamContent(param), headers);
-        log.info("rest-post-text-请求参数:{}", formEntity.toString());
+        Log.info("rest-post-text-请求参数:{}", formEntity.toString());
         return formEntity;
     }
 

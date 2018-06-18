@@ -20,7 +20,7 @@ import java.util.List;
 @Service //容器初始化完成后会触发该事件
 public class ProductRpcService implements ApplicationListener<ContextRefreshedEvent> {
 
-    private static final Logger log = LoggerFactory.getLogger(ProductRpcService.class);
+    private static final Logger Log = LoggerFactory.getLogger(ProductRpcService.class);
 
     static final String MQ_DESTINATION = "Consumer.cache.VirtualTopic.PRODUCT_STATUS";
 
@@ -63,7 +63,7 @@ public class ProductRpcService implements ApplicationListener<ContextRefreshedEv
 
     @JmsListener(destination = MQ_DESTINATION)
     void updateCache(ProductStatusEvent event) {
-        log.info("receive event:{}", event);
+        Log.info("receive event:{}", event);
         productCache.removeCache(event.getId());
         if (ProductStatus.IN_SELL.equals(event.getStatus())) {
             productCache.readCache(event.getId());

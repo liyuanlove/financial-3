@@ -24,7 +24,7 @@ import java.util.Map;
 @Component
 public class ProductCache {
 
-    private static final Logger log = LoggerFactory.getLogger(ProductCache.class);
+    private static final Logger Log = LoggerFactory.getLogger(ProductCache.class);
 
     static final String CACHE_NAME = "imooc_product";
 
@@ -44,9 +44,9 @@ public class ProductCache {
      */
     @Cacheable(cacheNames = CACHE_NAME)
     public Product readCache(String id) {
-        log.info("rpc查询单个产品, 请求 : {}", id);
+        Log.info("rpc查询单个产品, 请求 : {}", id);
         Product product = productRpc.findOne(id);
-        log.info("rpc查询单个产品, 结果 : {}", product);
+        Log.info("rpc查询单个产品, 结果 : {}", product);
         return product;
     }
 
@@ -94,9 +94,9 @@ public class ProductCache {
         List<String> status = new ArrayList<>();
         status.add(ProductStatus.IN_SELL.name());
         req.setStatusList(status);
-        log.info("rpc查询全部产品, 请求 : {}", req);
+        Log.info("rpc查询全部产品, 请求 : {}", req);
         List<Product> productList = productRpc.query(req);
-        log.info("rpc查询全部产品, 结果 : {}", req);
+        Log.info("rpc查询全部产品, 结果 : {}", req);
         return productList;
     }
 

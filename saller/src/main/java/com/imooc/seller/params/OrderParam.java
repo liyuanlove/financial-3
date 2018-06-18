@@ -1,33 +1,21 @@
-package com.imooc.entity;
+package com.imooc.seller.params;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import com.imooc.seller.sign.SignText;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- * 订单
- * Created by songyouyu on 2018/6/13
+ * 下单请求参数
+ * Created by songyouyu on 2018/6/16
  */
-@Entity(name = "order_t")
-public class Order {
-
-    @Id
-    private String orderId;
+public class OrderParam implements SignText {
 
     //渠道id
     private String chanId;
 
     private String chanUserId;
-
-    /**
-     * @see com.imooc.entity.enums.OrderType
-     */
-    private String orderType;
 
     private String productId;
 
@@ -35,31 +23,10 @@ public class Order {
 
     private String outerOrderId;
 
-    /**
-     * @see com.imooc.entity.enums.OrderStatus
-     */
-    private String orderStatus;
-
     private String memo;
 
     @JsonFormat(pattern = "YYYY-MM-DD HH:mm:ss")
     private Date createAt;
-
-    @JsonFormat(pattern = "YYYY-MM-DD HH:mm:ss")
-    private Date updateAt;
-
-    @Override
-    public String toString() {
-        return ReflectionToStringBuilder.toString(this);
-    }
-
-    public String getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
-    }
 
     public String getChanId() {
         return chanId;
@@ -75,14 +42,6 @@ public class Order {
 
     public void setChanUserId(String chanUserId) {
         this.chanUserId = chanUserId;
-    }
-
-    public String getOrderType() {
-        return orderType;
-    }
-
-    public void setOrderType(String orderType) {
-        this.orderType = orderType;
     }
 
     public String getProductId() {
@@ -109,14 +68,6 @@ public class Order {
         this.outerOrderId = outerOrderId;
     }
 
-    public String getOrderStatus() {
-        return orderStatus;
-    }
-
-    public void setOrderStatus(String orderStatus) {
-        this.orderStatus = orderStatus;
-    }
-
     public String getMemo() {
         return memo;
     }
@@ -133,12 +84,16 @@ public class Order {
         this.createAt = createAt;
     }
 
-    public Date getUpdateAt() {
-        return updateAt;
+    @Override
+    public String toString() {
+        return "OrderParam{" +
+                "chanId='" + chanId + '\'' +
+                ", chanUserId='" + chanUserId + '\'' +
+                ", productId='" + productId + '\'' +
+                ", amount=" + amount +
+                ", outerOrderId='" + outerOrderId + '\'' +
+                ", memo='" + memo + '\'' +
+                ", createAt=" + createAt +
+                '}';
     }
-
-    public void setUpdateAt(Date updateAt) {
-        this.updateAt = updateAt;
-    }
-
 }

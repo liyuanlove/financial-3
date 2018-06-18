@@ -23,7 +23,7 @@ import java.util.List;
 @RequestMapping("/products")
 public class ProductController {
 
-    private static Logger log = LoggerFactory.getLogger(ProductController.class);
+    private static Logger Log = LoggerFactory.getLogger(ProductController.class);
 
     @Autowired
     private ProductService productService;
@@ -35,9 +35,9 @@ public class ProductController {
      */
     @RequestMapping(value = "", method = RequestMethod.POST)
     public Product addProduct(@RequestBody Product product) {
-        log.info("创建产品，参数 : {}", product);
+        Log.info("创建产品，参数 : {}", product);
         Product result = productService.addProduct(product);
-        log.info("创建产品，结果 : {}", product);
+        Log.info("创建产品，结果 : {}", product);
         return result;
     }
 
@@ -48,11 +48,11 @@ public class ProductController {
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Product selectProduct(@PathVariable String id) {
-        log.info("查询单个产品, id : {}", id);
+        Log.info("查询单个产品, id : {}", id);
 
         Product product = productService.selectProduct(id);
 
-        log.info("查询单个产品, 结果 : {}", product);
+        Log.info("查询单个产品, 结果 : {}", product);
 
         return product;
     }
@@ -74,7 +74,7 @@ public class ProductController {
                                            String status,
                                            @RequestParam(defaultValue = "0") int pageNum,
                                            @RequestParam(defaultValue = "10") int pageSize) {
-        log.info("查询产品, ids : {}, minRewardRate : {}, maxRewardRate : {}, status : {}",
+        Log.info("查询产品, ids : {}, minRewardRate : {}, maxRewardRate : {}, status : {}",
                 ids, minRewardRate, maxRewardRate, status);
         List<String> idList = null, statusList = null;
         if (!StringUtils.isEmpty(ids)) {
@@ -87,7 +87,7 @@ public class ProductController {
         Page<Product> page = productService.selectProductList(idList,
                 minRewardRate, maxRewardRate, statusList, pageable);
 
-        log.info("查询产品, 结果 : {}", page);
+        Log.info("查询产品, 结果 : {}", page);
         return page;
     }
 

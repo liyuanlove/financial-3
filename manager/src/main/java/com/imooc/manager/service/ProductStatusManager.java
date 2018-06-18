@@ -19,20 +19,20 @@ public class ProductStatusManager {
 
     static  final String MQ_DESTINATION = "VirtualTopic.PRODUCT_STATUS";
 
-    static Logger log = LoggerFactory.getLogger(ProductStatusManager.class);
+    static Logger Log = LoggerFactory.getLogger(ProductStatusManager.class);
 
     @Autowired
     private JmsTemplate jmsTemplate;
 
     public void changeStatus(String id, ProductStatus status){
         ProductStatusEvent event = new ProductStatusEvent(id,status);
-        log.info("send message:{}",event);
+        Log.info("send message:{}",event);
         jmsTemplate.convertAndSend(MQ_DESTINATION,event);
     }
 
-    @PostConstruct
-    public void init(){
-        changeStatus("001",ProductStatus.IN_SELL);
-    }
+//    @PostConstruct
+//    public void init(){
+//        changeStatus("001",ProductStatus.IN_SELL);
+//    }
 
 }
